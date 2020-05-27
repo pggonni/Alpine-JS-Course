@@ -16,4 +16,4 @@
 11. Transitions: Dropdown (Coming Soon)
 12. Transitions: Modal (Coming Soon)
 13. Transitions: Sidebar (Coming Soon)
-14. Easier Transitions (Coming Soonish)
+14. Easier Transitions (Coming Soon)
