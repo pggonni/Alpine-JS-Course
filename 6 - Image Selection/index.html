@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Intro</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div x-data="{ openImg: 'img1' }" class="mx-auto w-full max-w-xl p-8">
+        <div>
+            <img x-show="openImg === 'img1'" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1907&q=80" alt="macbook pro" class="rounded-lg">
+            <img x-show="openImg === 'img2'" src="https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1947&q=80" alt="ps4 controller" class="rounded-lg">
+            <img x-show="openImg === 'img3'" src="/Assets/christopher-burns-Kj2SaNHG-hg-unsplash.jpg" alt="abstract lines" class="rounded-lg">
+        </div>  
+        <ul class="flex mt-4">
+            <a 
+                href="#" 
+                class="block"
+                @click.prevent="openImg = 'img1'"
+            >
+                <img 
+                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1907&q=80" 
+                    alt="" 
+                    class="rounded-lg w-24 h-16 mr-4 opacity-75 hover:opacity-100"
+                    :class="{ 'opacity-100': openImg === 'img1' }"
+                    >
+            </a>
+            <a 
+                href="#" 
+                class="block"
+                @click.prevent="openImg = 'img2'"
+            >
+                <img 
+                    src="https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1947&q=80" 
+                    alt="" 
+                    class="rounded-lg w-24 h-16 mr-4 opacity-75 hover:opacity-100"
+                    :class="{ 'opacity-100': openImg === 'img2' }"
+                    >
+            </a>
+            <a 
+                href="#" 
+                class="block"
+                @click.prevent="openImg = 'img3'"
+            >
+                <img 
+                    src="https://images.unsplash.com/photo-1496096265110-f83ad7f96608?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" 
+                    alt="" 
+                    class="rounded-lg w-24 h-16 opacity-75 hover:opacity-100"
+                    :class="{ 'opacity-100' : openImg === 'img3' }"
+                    >
+            </a>
+        </ul>
+    </div>
+</body>
+</html>
