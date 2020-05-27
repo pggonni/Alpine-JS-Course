@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Intro</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-300" x-data="{ atTop: true }">
+    <nav 
+        @scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
+        class="fixed top-0 w-full flex px-4 justify-between"
+        :class="{ 'shadow-md bg-white' : !atTop }"
+    >
+        <a href="" class="block py-4">
+            Top Nav
+        </a>
+    </nav>
+    <div class="mx-auto x-full max-w-xl">
+        <div class="my-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid consequatur, doloremque soluta asperiores, suscipit assumenda eos natus, maiores illum repellendus numquam tempora molestias culpa ut quo consequuntur dignissimos eveniet?</div>
+        <div class="my-24">Nihil libero dolor tempora amet veritatis debitis sint officiis optio laboriosam voluptas, repellendus inventore ab perspiciatis earum praesentium eum nobis totam quos magni iusto culpa asperiores consectetur! Velit, non laboriosam!</div>
+        <div class="my-24">Veniam debitis modi quae dolores earum ex vel illo, unde magnam eaque reiciendis exercitationem aspernatur ullam quasi excepturi architecto! Sunt dolores odio cum adipisci saepe dolorem, voluptatibus optio itaque culpa!</div>
+        <div class="my-24">Non numquam soluta doloribus odio, repellendus quos cum exercitationem eos et, expedita sed temporibus quae? Est aut ratione, possimus iste maiores, nam sed, ullam eius iure facere aperiam fugit eos?</div>
+        <div class="my-24">Delectus dignissimos blanditiis mollitia cupiditate ducimus dolorem id, molestias cum laboriosam fugit voluptate maxime quisquam impedit autem ex ad et molestiae, rerum totam modi amet corporis quod. Natus, labore fugiat?</div>
+    </div>
+</body>
+</html>

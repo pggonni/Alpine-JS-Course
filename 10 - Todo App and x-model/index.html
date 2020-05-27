@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Intro</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 text-gray-800">
+    <div class="flex items-center justify-center h-screen w-screen">
+        <div class="bg-white shadow-lg rounded-md p-6 w-full max-w-md" x-data="addTodos()">
+            <div class="mb-4">
+                <h1 class="text-3xl font-semibold mb-2">Todo App</h1>
+
+                <!-- Sync what the user is typing to the todoTitle with x-model 
+                When user presses enter, the addTodo() function is called -->
+                <input 
+                    type="text" 
+                    placeholder="What do you need to do today?" 
+                    class="w-full p-2 my-3 bg-gray-100 border-b-2 border-gray-500 focus:border-teal-400" 
+                    x-model="todoTitle"
+                    @keydown.enter="addTodo()"
+                >
+            </div>
+            <ul>
+                <!-- Loop over the todos to create a new todo item for each todo in the array -->
+                <template x-for="todo in todos" :key="todo.id">
+
+                    <!-- List item has a conditional class: if todo.isDone is true, opacity will be 50% -->
+                    <li class="flex items-center mb-2" :class="{ 'opacity-50' : todo.isDone }">
+                        <!-- Use x-model to bind the checkbox to the isDone state (this works because checkboxes provide a boolean state) -->
+                        <input type="checkbox" class="cursor-pointer" x-model="todo.isDone">
+                        <p class="mx-2" :class="{ 'line-through' : todo.isDone }" x-text="todo.title"></p>
+                        <button class="ml-auto rounded-full hover:bg-gray-200 p-1" @click="removeTodo(todo.id)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg>
+                        </button>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
